@@ -11,7 +11,7 @@ int nCount = 0;
 void SetTimer(boost::asio::steady_timer* pTimer) {
   std::cout << "SetTimer: " << time(NULL) << std::endl;
 
-  pTimer->expires_from_now(boost::chrono::milliseconds(1000));
+  pTimer->expires_from_now(std::chrono::milliseconds(1000));
 
   pTimer->async_wait(
       boost::bind(OnTimer, boost::asio::placeholders::error, pTimer));

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <boost/asio.hpp>
 #include <boost/asio/steady_timer.hpp>
-#include <boost/chrono.hpp>
+//#include <boost/chrono.hpp>
 
 void OnTimer(const boost::system::error_code& error) {
   if (!error) {
@@ -19,7 +19,7 @@ int main() {
 
   boost::asio::steady_timer timer(io_service);
 
-  timer.expires_from_now(boost::chrono::milliseconds(2000));
+  timer.expires_from_now(std::chrono::milliseconds(2000));
 
   timer.async_wait(OnTimer);
 

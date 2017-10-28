@@ -58,6 +58,9 @@ target_link_libraries(
 target_compile_options( ${json} PUBLIC -frtti -g -O2)
 
 
-
+set_target_properties( ${json}
+	PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/property_tree"
+	)
 
 

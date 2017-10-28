@@ -24,7 +24,9 @@ target_link_libraries(
   )
 target_compile_options( ${t1} PUBLIC -std=c++11 -fno-rtti)
 
-
-
+set_target_properties( ${t0} ${t1}
+	PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/asio"
+)
 
 

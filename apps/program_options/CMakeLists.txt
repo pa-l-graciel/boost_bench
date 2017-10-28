@@ -22,3 +22,9 @@ target_link_libraries(
   )
 
 target_compile_options( ${multiple_sources} PUBLIC -std=c++11 -fno-rtti)
+
+
+set_target_properties( ${FIRST} ${multiple_sources}
+	PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/program_options"
+	)

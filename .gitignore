@@ -35,4 +35,9 @@
 *.out
 *.app
 
+*.cmake
+CMakeCache.txt
+Makefile
+CMakeFiles/
+
 # End of https://www.gitignore.io/api/c++
