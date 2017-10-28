@@ -57,10 +57,33 @@ target_link_libraries(
 #target_compile_options( ${json} PUBLIC -std=c++11 -frtti -g -O2)
 target_compile_options( ${json} PUBLIC -frtti -g -O2)
 
-
 set_target_properties( ${json}
 	PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/property_tree"
 	)
+
+add_custom_command(
+	TARGET ${json} POST_BUILD
+	COMMAND ${CMAKE_COMMAND} -E copy
+	#	${CMAKE_CURRENT_BINARY_DIR}/input.json   # src path
+	./input.json   # src path
+	${CMAKE_SOURCE_DIR}/bin/property_tree    # dst path
+	)
+
+
+set (copy_list
+	./*.json   # src path
+	./*.xml
+	./*.info
+)
+
+foreach(file_i ${copy_list})
+	add_custom_command(
+		TARGET ${json} POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy
+		${file_i}
+		${CMAKE_SOURCE_DIR}/bin/property_tree    # dst path
+	)
+endforeach(file_i)
 
 

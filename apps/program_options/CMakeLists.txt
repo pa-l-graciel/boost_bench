@@ -28,3 +28,19 @@ set_target_properties( ${FIRST} ${multiple_sources}
 	PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/program_options"
 	)
+
+set (copy_list
+	./*.cfg   # src path
+	./*.rsp
+)
+
+foreach(file_i ${copy_list})
+add_custom_command(
+	TARGET ${multiple_sources} POST_BUILD
+	COMMAND ${CMAKE_COMMAND} -E copy
+	${file_i}
+	${CMAKE_SOURCE_DIR}/bin/program_options    # dst path
+)
+endforeach(file_i)
+
+
