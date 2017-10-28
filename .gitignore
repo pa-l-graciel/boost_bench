@@ -41,5 +41,6 @@
 CMakeCache.txt
 Makefile
 CMakeFiles/
+bin/
 
 # End of https://www.gitignore.io/api/c++
